@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h2>🎯 Bienvenue sur FileShare Pro!</h2>
+    
+    <div class="info-box">
+        <h3>🔥 Nouvelles Fonctionnalités</h3>
+        <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+            <li>✨ <strong>Upload MULTIPLE fichiers</strong> en même temps (2, 3, 4+)</li>
+            <li>📦 <strong>Un seul nom d'utilisateur</strong> pour tous tes fichiers</li>
+            <li>📥 <strong>Télécharge individuellement</strong> ou tous en ZIP</li>
+            <li>📊 <strong>Statistiques détaillées</strong> par fichier</li>
+            <li>🔒 <strong>Sécurisé</strong> avec mots de passe hachés</li>
+            <li>🚀 <strong>Hébergé sur Render Pro</strong></li>
+        </ul>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0;">
+        <div class="info-box">
+            <h3>📤 Pour déposer</h3>
+            <ol style="text-align: left;">
+                <li>Clique "Déposer"</li>
+                <li>Sélectionne <strong>PLUSIEURS fichiers</strong> (Ctrl+Clic ou Shift+Clic)</li>
+                <li>Choisis nom d'utilisateur + mot de passe</li>
+                <li>Upload tous les fichiers en une fois!</li>
+                <li>Partage les identifiants</li>
+            </ol>
+        </div>
+
+        <div class="info-box">
+            <h3>📥 Pour télécharger</h3>
+            <ol style="text-align: left;">
+                <li>Clique "Télécharger"</li>
+                <li>Entre les identifiants</li>
+                <li>Vois <strong>TOUS les fichiers</strong></li>
+                <li>Télécharge un par un ou tout en ZIP</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h4>🎯 Exemple d'utilisation</h4>
+        <p><strong>Scénario:</strong> Tu veux partager 5 APK + 3 images + 2 vidéos</p>
+        <p>✅ Upload tous les 10 fichiers en une fois avec les mêmes identifiants<br>
+        ✅ Partage le nom d'utilisateur et mot de passe<br>
+        ✅ La personne télécharge ce qu'elle veut ou tout en ZIP!</p>
+    </div>
+</div>
+{% endblock %}
