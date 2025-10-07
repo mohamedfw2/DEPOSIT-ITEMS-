@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Déposer des fichiers - FileShare Pro{% endblock %}
+
+{% block content %}
+<h2>📤 Déposer des fichiers (Multiple)</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="files">📁 Choisir les fichiers (Ctrl+Clic pour sélection multiple) :</label>
+        <input type="file" id="files" name="files" multiple required>
+        <small style="color: #666;">Maximum {{ max_files }} fichiers - Tous formats acceptés - Ctrl+Clic ou Shift+Clic pour sélectionner plusieurs</small>
+    </div>
+
+    <div class="form-group">
+        <label for="username">👤 Nom d'utilisateur (minimum 3 caractères) :</label>
+        <input type="text" id="username" name="username" required minlength="3"
+               placeholder="Ex: monprojet2024">
+        <small style="color: #666;">Tous tes fichiers seront liés à ce nom</small>
+    </div>
+
+    <div class="form-group">
+        <label for="password">🔒 Mot de passe (minimum 4 caractères) :</label>
+        <input type="password" id="password" name="password" required minlength="4"
+               placeholder="Choisis un mot de passe sécurisé">
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="replace_existing" name="replace_existing">
+        <label for="replace_existing" style="margin-bottom: 0;">🔄 Remplacer mes anciens fichiers (si j'utilise le même nom d'utilisateur)</label>
+    </div>
+
+    <button type="submit">🚀 Déposer tous les fichiers</button>
+</form>
+
+<div class="info-box">
+    <h4>ℹ️ Comment ça marche</h4>
+    <ul>
+        <li><strong>Première fois:</strong> Choisis un nom d'utilisateur, il sera créé automatiquement</li>
+        <li><strong>Ajout de fichiers:</strong> Utilise le MÊME nom d'utilisateur + mot de passe pour ajouter plus de fichiers</li>
+        <li><strong>Remplacement:</strong> Coche la case pour supprimer tes anciens fichiers et uploader de nouveaux</li>
+        <li><strong>Sélection multiple:</strong> Maintiens Ctrl (Windows) ou Cmd (Mac) pour sélectionner plusieurs fichiers</li>
+    </ul>
+</div>
+
+<div class="info-box">
+    <h4>🔥 Exemples</h4>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: center; margin-top: 15px;">
+        <div>📱 <strong>5 APK</strong><br>à la fois!</div>
+        <div>🖼️ <strong>10 Images</strong><br>en une fois!</div>
+        <div>🎥 <strong>3 Vidéos</strong><br>ensemble!</div>
+        <div>📄 <strong>Mix de tout</strong><br>APK+IMG+ZIP!</div>
+    </div>
+</div>
+{% endblock %}
