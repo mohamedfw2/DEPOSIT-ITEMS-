@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Télécharger des fichiers - FileShare Pro{% endblock %}
+
+{% block content %}
+<h2>📥 Télécharger des fichiers</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="username">👤 Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required 
+               placeholder="Entre le nom d'utilisateur reçu">
+    </div>
+
+    <div class="form-group">
+        <label for="password">🔒 Mot de passe :</label>
+        <input type="password" id="password" name="password" required 
+               placeholder="Entre le mot de passe reçu">
+    </div>
+
+    <button type="submit">🔐 Se connecter et voir les fichiers</button>
+</form>
+
+<div class="info-box">
+    <h4>🎯 Après connexion</h4>
+    <p>Tu verras:</p>
+    <ul>
+        <li>📊 <strong>TOUS les fichiers</strong> de cet utilisateur</li>
+        <li>📥 Option de télécharger <strong>fichier par fichier</strong></li>
+        <li>📦 Option de télécharger <strong>TOUT en ZIP</strong></li>
+        <li>📈 Statistiques (taille, dates, téléchargements)</li>
+    </ul>
+</div>
+{% endblock %}
