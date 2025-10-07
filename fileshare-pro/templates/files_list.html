@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Mes Fichiers - FileShare Pro{% endblock %}
+
+{% block content %}
+<h2>📁 Fichiers de {{ session.username }}</h2>
+
+{% if stats %}
+<div class="stats-box">
+    <h3 style="margin-top: 0;">📊 Statistiques Globales</h3>
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-value">{{ stats.total_files or 0 }}</div>
+            <div class="stat-label">Fichiers</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">{{ format_size(stats.total_size or 0) }}</div>
+            <div class="stat-label">Taille Totale</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">{{ stats.total_downloads or 0 }}</div>
+            <div class="stat-label">Téléchargements</div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if files|length > 1 %}
+<div style="text-align: center; margin: 20px 0;">
+    <a href="{{ url_for('download_all') }}" class="btn btn-download-all">
+        📦 Télécharger TOUS les fichiers en ZIP
+    </a>
+</div>
+{% endif %}
+
+<h3>📂 Liste des fichiers ({{ files|length }})</h3>
+
+{% for file in files %}
+<div class="file-card">
+    <div class="file-header">
+        <div class="file-name">📄 {{ file.original_filename }}</div>
+        <a href="{{ url_for('download_single_file', file_id=file.id) }}" class="btn btn-download">
+            📥 Télécharger
+        </a>
+    </div>
+    
+    <div class="file-info-grid">
+        <div class="info-item">
+            <div class="info-value">{{ format_size(file.file_size) }}</div>
+            <div class="info-label">Taille</div>
+        </div>
+        <div class="info-item">
+            <div class="info-value">{{ file.upload_date.strftime('%d/%m/%Y') }}</div>
+            <div class="info-label">Uploadé le</div>
+        </div>
+        <div class="info-item">
+            <div class="info-value">{{ file.download_count }}</div>
+            <div class="info-label">Téléchargements</div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% if not files %}
+<div class="info-box">
+    <h4>📭 Aucun fichier trouvé</h4>
+    <p>Upload des fichiers pour commencer!</p>
+</div>
+{% endif %}
+
+{% if files|length > 1 %}
+<div style="text-align: center; margin: 30px 0;">
+    <a href="{{ url_for('download_all') }}" class="btn btn-download-all">
+        📦 Télécharger TOUS en ZIP ({{ files|length }} fichiers)
+    </a>
+</div>
+{% endif %}
+{% endblock %}
